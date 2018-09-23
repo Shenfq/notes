@@ -4,13 +4,26 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
+  search: false,
+  lastUpdated: true,
   themeConfig: {
     nav: [
       { text: '前端笔记', link: '/fe/' },
       { text: '通用技术', link: '/common/' },
-      { text: '读书笔记', link: '/book/' },
-      { text: '有感而发', link: '/feel/' }
+      { text: '读书笔记', link: '/book/' }
     ],
-    sidebar: 'auto'
+    sidebar: {
+      '/fe/': [
+        'module',
+        'node'
+      ],
+      '/common/': [
+        'design-patterns',
+        'functions'
+      ],
+      '/book/': [
+        'the-art-of-scalability.md'
+      ]
+    }
   }
 }

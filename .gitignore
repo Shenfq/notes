@@ -18,9 +18,9 @@ node_modules/
 .npm
 
 # dotenv environment variables file
+.idea
 .env
 
 # dist directory
+.vuepress/dist/
 .dist
-
-.idea

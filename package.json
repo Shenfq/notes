@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vuepress dev .",
     "build": "vuepress build .",
+    "pages": "node gh-pages",
+    "deploy": "npm run build && npm run pages",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/Shenfq/notes#readme",
   "devDependencies": {
+    "gh-pages": "^2.0.0",
     "vuepress": "^0.14.4"
   }
 }
