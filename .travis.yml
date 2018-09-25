@@ -16,5 +16,3 @@ branches:
   only:
     - master
 env:
- global:
-   - GH_REF: github.com/dmego/dmego.github.io.git --{仓库地址}
