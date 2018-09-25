@@ -13,17 +13,32 @@ module.exports = {
       { text: '读书笔记', link: '/book/' }
     ],
     sidebar: {
-      '/fe/': [
-        'module',
-        'node'
-      ],
-      '/common/': [
-        'design-patterns',
-        'functions'
-      ],
-      '/book/': [
-        'the-art-of-scalability.md'
-      ]
+      '/fe/': [{
+        title: '前端笔记',
+        collapsable: false,
+        children: [
+          '',
+          'module',
+          'node'
+        ]
+      }],
+      '/common/': [{
+        title: '通用技术',
+        collapsable: false,
+        children: [
+          '',
+          'design-patterns',
+          'functions'
+        ]
+      }],
+      '/book/': [{
+        title: '读书笔记',
+        collapsable: false,
+        children: [
+          '',
+          'the-art-of-scalability.md'
+        ]
+      }]
     }
   }
 }
