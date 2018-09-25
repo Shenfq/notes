@@ -1,0 +1,20 @@
+language: node_js
+node_js: stable
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+# before_script:
+
+script:
+  - npm run build
+  - npm run deploy "https://${GH_TOKEN}@${GH_REF}"
+
+# after_script:
+
+branches:
+  only:
+    - master
+env:
+  - GH_REF: github.com/Shenfq/notes.git
