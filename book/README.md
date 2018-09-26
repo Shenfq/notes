@@ -4,7 +4,6 @@
 
 ### 在读ing
 
-- 《飞行酿酒师》
 - 《Linux命令行大全》
 - 《Python Without Fear》
 - 《你不知道的 JavaScript（中）》
@@ -18,6 +17,8 @@
 - [《天黑以后》](https://book.douban.com/subject/7056685/)
 - [《蜂巢》](https://book.douban.com/subject/27113219/)
 - [《湖畔》](https://book.douban.com/subject/26598142/)
+- [《飞行酿酒师》](https://book.douban.com/subject/27108703/)
+- [《当我谈跑步时我谈些什么》](https://book.douban.com/subject/3369600/)
 
 #### 技术类：
 - [《淘宝技术那十年》](https://book.douban.com/subject/24335672/)
