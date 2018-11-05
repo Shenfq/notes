@@ -4,7 +4,8 @@
 
 ### 在读ing
 
-- 《白夜行》
+- 《从0到1》
+- 《Angular从零到一》
 - 《Linux命令行大全》
 - 《Python Without Fear》
 - 《你不知道的 JavaScript（中）》
@@ -20,6 +21,9 @@
 - [《湖畔》](https://book.douban.com/subject/26598142/)
 - [《飞行酿酒师》](https://book.douban.com/subject/27108703/)
 - [《当我谈跑步时，我谈些什么》](https://book.douban.com/subject/26575679/)
+- [《白夜行》](https://book.douban.com/subject/10554308/)
+- [《沉睡的人鱼之家》](https://book.douban.com/subject/27028847/)
+- [《宇宙超度指南》](https://book.douban.com/subject/27145908/)
 
 #### 技术类：
 - [《淘宝技术那十年》](https://book.douban.com/subject/24335672/)
