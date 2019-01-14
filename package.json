@@ -19,7 +19,6 @@
   },
   "homepage": "https://shenfq.github.io/notes/",
   "devDependencies": {
-    "gh-pages": "^2.0.0",
     "vuepress": "^0.14.4"
   }
 }
