@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev .",
-    "build": "vuepress build .",
-    "deploy": "node gh-pages",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vuepress build ."
   },
   "repository": {
     "type": "git",
