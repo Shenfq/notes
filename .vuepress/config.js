@@ -37,6 +37,7 @@ module.exports = {
         children: [
           '',
           '2018',
+          '2019',
           'the-art-of-scalability.md'
         ]
       }]
