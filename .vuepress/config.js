@@ -13,15 +13,27 @@ module.exports = {
       { text: '读书笔记', link: '/book/' }
     ],
     sidebar: {
-      '/fe/': [{
-        title: '前端笔记',
-        collapsable: false,
-        children: [
-          '',
-          'module',
-          'node'
-        ]
-      }],
+      '/fe/': [
+        {
+          title: '简介',
+          collapsable: false,
+          children: ['']
+        },
+        {
+          title: '模块化',
+          collapsable: false,
+          children: [
+            'commonjs'
+          ]
+        },
+        {
+          title: 'Node.js',
+          collapsable: false,
+          children: [
+            'node-process'
+          ]
+        }
+      ],
       '/common/': [{
         title: '通用技术',
         collapsable: false,
