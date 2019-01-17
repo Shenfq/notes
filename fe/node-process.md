@@ -146,14 +146,13 @@ setInterval(() => {
   })
 }, 1000);
 ```
-
-![image](00F1CDC2317E4CF6867987DE6CE21B92)
+![image](https://file.shenfq.com/19-1-9/37414156.jpg)
 
 ### 小结
 
 其实可以看到，这些方法都是对spawn方法的复用，然后spawn方法底层调用了libuv进行进程的管理，具体可以看下图。
 
-![image](21427BA2991F437CA6D7185B447FFEC9)
+![image](https://file.shenfq.com/19-1-9/67988038.jpg)
 
 
 ## 利用fork实现`master-worker`模型
@@ -175,7 +174,7 @@ http.createServer((req, res) => {
 }).listen(8000)
 ```
 
-![image](15721F9D2EDE44CD8646D53622240550)
+![image](https://file.shenfq.com/19-1-9/87041789.jpg)
 
 ```
               +--------------+
@@ -250,7 +249,7 @@ process.on('message', function (msg, handler) {
 })
 ```
 
-![启动服务](EEFA5548E415462D8F3349D78074ECD4)
+![启动服务](https://file.shenfq.com/19-1-9/4257973.jpg)
 
 下面我们通过`curl`连续请求 5 次服务。
 
@@ -260,15 +259,16 @@ do
   curl "localhost:3000"
 done
 ```
-![请求服务](0FDDA7FADC0C403A85BAE4982CB27138)
+
+![请求服务](https://file.shenfq.com/19-1-9/13847319.jpg)
 
 可以看到，响应请求的可以是父进程，也可以是不同子进程，多个进程对同一个服务响应的连接事件监听，谁先抢占，就由谁进行响应。这里就会出现一个Linux网络编程中很常见的事件，当多个进程同时监听网络的连接事件，当这个有新的连接到达时，这些进程被同时唤醒，这被称为“惊群”。这样导致的情况就是，一旦事件到达，每个进程同时去响应这一个事件，而最终只有一个进程能处理事件成功，其他的进程在处理该事件失败后重新休眠，造成了系统资源的浪费。
 
-![image](FBB6B341F35141ACB7078A4540B56795)
+![image](https://file.shenfq.com/19-1-9/82240458.jpg)
 
 > ps：在windows系统上，永远都是最后定义的子进程抢占到句柄，这可能和libuv的实现机制有关，具体原因往有大佬能够指点。
 
-![image](B431C6F784104BD0A178662AD561575D)
+![image](https://file.shenfq.com/19-1-9/19078214.jpg)
 
 出现这样的问题肯定是大家都不愿意的嘛，这个时候我们就想起了`nginx`的好了，这里[有篇文章](https://blog.csdn.net/russell_tao/article/details/7204260)讲解了nginx是如何解决“惊群”的，利用nginx的反向代理可以有效地解决这个问题，毕竟nginx本来就很擅长这种问题。
 
@@ -336,7 +336,7 @@ if (cluster.isMaster) { // 判断是否为主进程
 }
 ```
 
-![image](FB4B371D1A6C4634A1CEE543C7C6F88D)
+![image](https://file.shenfq.com/19-1-9/33436044.jpg)
 
 
 ## cluster模块源码分析
