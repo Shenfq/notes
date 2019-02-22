@@ -4,12 +4,11 @@
 
 ### 在读ing
 
+- 《幻夜》
 - 《从0到1》
-- 《Angular从零到一》
-- 《Linux命令行大全》
-- 《Python Without Fear》
 - 《你不知道的 JavaScript（中）》
 
 ### 书单
 
 - [2018](2018.html)
+- [2019](2019.html)
