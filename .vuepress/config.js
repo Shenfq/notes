@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
-  title: 'Notes',
-  description: '自然醒的学习笔记',
+  title: '大雾',
+  description: '学习笔记',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
