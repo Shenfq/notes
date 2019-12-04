@@ -24,14 +24,7 @@ module.exports = {
           title: '模块化',
           collapsable: false,
           children: [
-            'commonjs'
-          ]
-        },
-        {
-          title: 'Node.js',
-          collapsable: false,
-          children: [
-            'node-process'
+            'modules'
           ]
         }
       ],
