@@ -44,6 +44,7 @@ module.exports = {
           '',
           '2018',
           '2019',
+          '2020',
           'the-art-of-scalability.md'
         ]
       }]
