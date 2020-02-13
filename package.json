@@ -19,7 +19,8 @@
   },
   "homepage": "https://shenfq.github.io/notes/",
   "devDependencies": {
-    "vuepress": "^1.0.2"
+    "vuepress": "^1.0.2",
+    "vuepress-plugin-image": "^1.0.4"
   },
   "dependencies": {
     "echarts": "^4.2.1",
