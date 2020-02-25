@@ -9,15 +9,18 @@ const mimeType = require('mime-types')
 const cacheString = fs.readFileSync('cache/image.json', 'utf8') || '{}'
 const cache = JSON.parse(cacheString)
 
-const imgRegexp = /!\[.+\]\((.+)\)/g
+const imgRegexp = /!\[(.+)\]\((.+)\)/g
 
 glob.sync('src/**/*.md').forEach(async(file) => {
   let content = fs.readFileSync(file, 'utf8')
   let match = null
   while (match = imgRegexp.exec(content)) {
-    const [origin, linkUrl] = match
+    const [origin, linkName, linkUrl] = match
     const [ url, resize ] = linkUrl.split(/\s+=/)
-    if (!resize) {
+    if (resize === undefined) {
+      continue
+    }
+    if (!/^https?:\/\//.test(linkUrl)) {
       continue
     }
     let rsp = null
@@ -43,18 +46,22 @@ glob.sync('src/**/*.md').forEach(async(file) => {
     if (!base64) {
       base64 = `data:${mime};base64,${img.toString('base64')}`
     }
-    const resizes = resize.split('x')
-    const width = parseInt(resizes[0]) || 210
+    const [_width, _height] = resize.split('x')
+    const width = parseInt(_width) || 210
+    const height = parseInt(_height) || null
 
     const resizeImg = await sharp(img)
-      .resize(width)
+      .resize(width, height)
       .toBuffer()
     base64 = `data:${mime};base64,${resizeImg.toString('base64')}`
     cache[md5] = base64
 
-    while (content.includes(linkUrl)) {
-      content = content.replace(linkUrl, base64)
-    }
+    console.log(file, linkName, linkUrl)
+    content = content.replace(linkUrl, base64)
   }
+
+  // 文件更新
+  fs.writeFileSync(file, content)
+  // 缓存更新
   fs.writeFileSync('cache/image.json', JSON.stringify(cache, null, 4))
 })
