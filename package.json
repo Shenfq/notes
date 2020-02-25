@@ -4,8 +4,8 @@
   "description": "自然醒的学习笔记",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev .",
-    "build": "vuepress build ."
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,12 @@
   },
   "homepage": "https://shenfq.github.io/notes/",
   "devDependencies": {
-    "vuepress": "^1.0.2",
-    "vuepress-plugin-image": "^1.0.4"
+    "glob": "^7.1.6",
+    "images": "^3.0.2",
+    "mime-types": "^2.1.26",
+    "sharp": "^0.24.1",
+    "sync-request": "^6.1.0",
+    "vuepress": "^1.0.2"
   },
   "dependencies": {
     "echarts": "^4.2.1",

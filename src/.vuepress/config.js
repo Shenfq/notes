@@ -2,18 +2,16 @@ const path = require('path')
 module.exports = {
   title: 'Notes',
   description: '自然醒的学习笔记',
+  search: false,
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
-  ],
-  search: false,
-  plugins: [
-    ['image']
   ],
   themeConfig: {
     lastUpdated: '最后更新时间',
     nav: [
       { text: '前端笔记', link: '/fe/' },
       { text: '通用技术', link: '/common/' },
+      { text: '日常记录', link: '/daily/' },
       { text: '读书笔记', link: '/book/' }
     ],
     sidebar: {
@@ -38,6 +36,14 @@ module.exports = {
           '',
           'design-patterns',
           'functions'
+        ]
+      }],
+      '/daily/': [{
+        title: '日常记录',
+        collapsable: false,
+        children: [
+          '',
+          '2020',
         ]
       }],
       '/book/': [{
