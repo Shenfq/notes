@@ -11,7 +11,6 @@ module.exports = {
     nav: [
       { text: '前端笔记', link: '/fe/' },
       { text: '通用技术', link: '/common/' },
-      { text: '日常记录', link: '/daily/' },
       { text: '读书笔记', link: '/book/' }
     ],
     sidebar: {
@@ -36,14 +35,6 @@ module.exports = {
           '',
           'design-patterns',
           'functions'
-        ]
-      }],
-      '/daily/': [{
-        title: '日常记录',
-        collapsable: false,
-        children: [
-          '',
-          '2020',
         ]
       }],
       '/book/': [{
