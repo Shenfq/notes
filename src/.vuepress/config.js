@@ -6,6 +6,9 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
+  plugins: [
+    ['image']
+  ],
   themeConfig: {
     lastUpdated: '最后更新时间',
     nav: [

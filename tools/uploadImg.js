@@ -24,6 +24,7 @@ const imgRegexp = /!\[(.+)\]\((.+)\)/g
 
 // 调整修改的md
 const files = process.argv.slice(2)
+console.log(0, files)
 files.forEach(async(file) => {
   console.log(11111, file)
   let content = fs.readFileSync(file, 'utf8')

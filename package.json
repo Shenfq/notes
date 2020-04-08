@@ -23,12 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/Shenfq/notes.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Shenfq/notes/issues"
-  },
   "homepage": "https://shenfq.github.io/notes/",
   "devDependencies": {
     "glob": "^7.1.6",
@@ -39,6 +34,7 @@
   },
   "dependencies": {
     "echarts": "^4.2.1",
+    "markdown-it-admonition": "^1.0.4",
     "vue-echarts": "^4.0.3",
     "vuepress": "^1.0.2",
     "vuepress-plugin-image": "^1.0.4"
