@@ -39,23 +39,12 @@ const run = async () => {
         continue
       }
 
-      let imgName = ''
+      let imgBuffer = null
       const [ url ] = linkUrl.split(/\s+=/)
 
       // 处理 base64 图片
       if (url.indexOf('data:') === 0) {
-        const b64string = url.replace(/data:(.+);base64,/, '');  //base64必须去掉头文件（data:image/png;base64,）
-        const md5 = crypto
-          .createHash('md5')
-          .update(b64string)
-          .digest('hex')
-
-        const buff = new Buffer(b64string, 'base64')
-        const stream = new Duplex()
-        stream.push(buff)
-        stream.push(null)
-
-        imgName = `${dateStr}/${md5}`
+        imgBuffer = url.replace(/data:(.+);base64,/, '')  //base64必须去掉头文件（data:image/png;base64,）
       }
 
       // 处理网络图片
@@ -67,31 +56,29 @@ const run = async () => {
           if (!rsp || !rsp.body) {
             console.error('[GET IMAGE ERROR]')
             process.exit(-1)
-            continue
           }
         } catch (e) {
           console.error('[GET IMAGE ERROR]', e)
           process.exit(-1)
         }
-        const img = rsp.body
-        const md5 = crypto
-          .createHash('md5')
-          .update(img)
-          .digest('hex')
-        
-        const buff = new Buffer(b64string, 'base64')
+
+        imgBuffer = rsp.body
+      }
+
+      if (imgBuffer) {
+        const buff = new Buffer(imgBuffer, 'base64')
         const stream = new Duplex()
         stream.push(buff)
         stream.push(null)
 
-        imgName = `${dateStr}/${md5}`
-        console.error(imgName)
-        process.exit(-1)
-      }
+        const md5 = crypto
+          .createHash('md5')
+          .update(imgBuffer)
+          .digest('hex')
 
-      if (imgName !== '') {
+        const key = `${dateStr}/${md5}`
         await new Promise((res) => {
-          formUploader.putStream(uploadToken, imgName, stream, putExtra, (err) => {
+          formUploader.putStream(uploadToken, key, stream, putExtra, (err) => {
             if (err) {
               console.log(err)
               process.exit(-1)
