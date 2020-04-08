@@ -87,7 +87,7 @@ const run = async () => {
           })
         })
   
-        content = content.replace(linkUrl, getCdn(key))
+        content = content.replace(url, getCdn(key))
       }
     }
     // 文件更新
