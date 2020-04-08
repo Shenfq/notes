@@ -14,16 +14,16 @@
     }
   },
   "lint-staged": {
-    "src/**/*.md": [
+    "*.md": [
       "node tools/uploadImg.js",
       "git add"
     ]
   },
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shenfq/notes.git"
   },
-  "license": "ISC",
   "homepage": "https://shenfq.github.io/notes/",
   "devDependencies": {
     "glob": "^7.1.6",
