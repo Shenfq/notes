@@ -31,6 +31,7 @@ const run = async () => {
   for (const file of files) {
     let content = fs.readFileSync(file, 'utf8')
     let match = null
+
     while (match = imgRegexp.exec(content)) {
       const [_, linkName, linkUrl] = match
 
@@ -38,6 +39,7 @@ const run = async () => {
         continue
       }
 
+      let imgName = ''
       const [ url ] = linkUrl.split(/\s+=/)
 
       // 处理 base64 图片
@@ -53,18 +55,7 @@ const run = async () => {
         stream.push(buff)
         stream.push(null)
 
-        const key = `${dateStr}/${md5}`
-        await new Promise((res) => {
-          formUploader.putStream(uploadToken, key, stream, putExtra, (err) => {
-            if (err) {
-              console.log(err)
-              process.exit(-1)
-            }
-            res(key)
-          })
-        })
-
-        content = content.replace(linkUrl, getCdn(key))
+        imgName = `${dateStr}/${md5}`
       }
 
       // 处理网络图片
@@ -93,9 +84,14 @@ const run = async () => {
         stream.push(buff)
         stream.push(null)
 
-        const key = `${dateStr}/${md5}`
+        imgName = `${dateStr}/${md5}`
+        console.error(imgName)
+        process.exit(-1)
+      }
+
+      if (imgName !== '') {
         await new Promise((res) => {
-          formUploader.putStream(uploadToken, key, stream, putExtra, (err) => {
+          formUploader.putStream(uploadToken, imgName, stream, putExtra, (err) => {
             if (err) {
               console.log(err)
               process.exit(-1)
@@ -103,12 +99,10 @@ const run = async () => {
             res(key)
           })
         })
-
+  
         content = content.replace(linkUrl, getCdn(key))
-        process.exit(-1)
       }
     }
-
     // 文件更新
     fs.writeFileSync(file, content)
   }

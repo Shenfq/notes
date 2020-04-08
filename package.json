@@ -14,10 +14,7 @@
     }
   },
   "lint-staged": {
-    "*.md": [
-      "node tools/uploadImg.js",
-      "git add"
-    ]
+    "*.md": "node tools/uploadImg.js"
   },
   "license": "ISC",
   "repository": {
