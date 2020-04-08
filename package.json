@@ -8,6 +8,17 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.md": [
+      "node tools/uploadImg.js",
+      "git add"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shenfq/notes.git"
@@ -21,14 +32,15 @@
   "homepage": "https://shenfq.github.io/notes/",
   "devDependencies": {
     "glob": "^7.1.6",
-    "images": "^3.0.2",
-    "mime-types": "^2.1.26",
-    "sharp": "^0.24.1",
-    "sync-request": "^6.1.0",
-    "vuepress": "^1.0.2"
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.2",
+    "qiniu": "^7.3.0",
+    "sync-request": "^6.1.0"
   },
   "dependencies": {
     "echarts": "^4.2.1",
-    "vue-echarts": "^4.0.3"
+    "vue-echarts": "^4.0.3",
+    "vuepress": "^1.0.2",
+    "vuepress-plugin-image": "^1.0.4"
   }
 }
