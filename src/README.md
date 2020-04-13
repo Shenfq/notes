@@ -8,7 +8,3 @@ pageClass: custom-home-class
 ---
 
 更多精彩可以查看：[我的博客](https://blog.shenfq.com/)
-
-::: 
-warning text
-:::
