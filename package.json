@@ -4,7 +4,7 @@
   "description": "自然醒的学习笔记",
   "main": "index.js",
   "scripts": {
-    "img": "node tools/img2base64",
+    "img": "node tools/uploadImg.js",
     "dev": "vuepress dev src",
     "build": "vuepress build src"
   },
