@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /imgs/logo.png
-actionText: 快去瞅瞅 →
+actionText: 👉 去看看
 actionLink: /book/
 footer: 粤ICP备18037988号-1
 pageClass: custom-home-class
